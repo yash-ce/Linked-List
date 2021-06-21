@@ -1,0 +1,23 @@
+void deleteAtHead(node* &head){
+    node* todelete = head;
+    head = head->next;
+    delete todelete;
+}
+
+void deletion(node* &head, int val){
+    if(head == NULL){
+        return;
+    }
+    if(head->next == NULL){
+        deleteAtHead(head);
+        return;
+    }
+    node* temp = head;
+    while(temp->next->val != val){
+        temp = temp->next;
+    }
+    node* todelete = temp->next;
+    temp->next = temp->next->next;
+    delete todelete;
+
+}
